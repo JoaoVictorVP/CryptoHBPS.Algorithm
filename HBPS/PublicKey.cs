@@ -10,7 +10,7 @@ public unsafe struct PublicKey
             return new Span<byte>(ptr, HBPS.PublicKeySize);
     }
 
-    public Key(Span<byte> bytes)
+    public PublicKey(Span<byte> bytes)
     {
         for (int i = 0; i < HBPS.PublicKeySize; i++)
             data[i] = bytes[i];
