@@ -16,6 +16,8 @@ public unsafe struct PublicKey
             data[i] = bytes[i];
     }
 
+    public bool IsEqual(PublicKey other) => AsSpan().SequenceEqual(new Span<byte>(other.data, HBPS.PublicKeySize));
+
     public override string ToString() => Convert.ToHexString(AsSpan());
     public static Key FromString(string hexString) => new Key(Convert.FromHexString(hexString));
 }
