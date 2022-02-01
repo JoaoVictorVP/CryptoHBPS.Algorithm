@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mii.NET" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Seed Words.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
