@@ -89,7 +89,7 @@ public class HBPS
 
         Span<byte> psign = stackalloc byte[hashSize];
         HashGenerator.GetHash(pkey.AsSpan(), data, psign);
-        return signature[hashSize..].SequenceEqual(psign);
+        return signature[..hashSize].SequenceEqual(psign);
     }
 
     public HBPS(IHBPSRandomGenerator randomGenerator, IHashGenerator hashGenerator)
