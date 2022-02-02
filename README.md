@@ -1,5 +1,8 @@
 # CryptoHBPS.Algorithm
 
+NuGet Package Release:
+https://www.nuget.org/packages/CryptoHBPS
+
 HBPS means Hash Based Property Signatures (or System, as it fits more)
 
 A new system of digital property proof, with this you can get, send and proof that you're, for example, owner of specific amount in coins. It's a "new" standart in the sense that it's entirely developed by mine withing my own thinkings these days after reading about post-quantum hash-based cryptography schemes, and it is secure in the same sense that cryptographic hash functions are for obvious reasons.
