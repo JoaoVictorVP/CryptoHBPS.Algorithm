@@ -14,6 +14,7 @@ There are too a implementation of master key generation (with seeds and so on), 
 For a brief conceptualization on Master Key MK key-pair generation, see:
 ![Master Key -> Key -> Public Key generation scheme](./MK-KeyPairGeneration-md.png)
 
+
 And for a brief explanation of this multi-signature system, see this image:
 ![Master Private/Master Public Key multi-signature scheme](./FHBMS-md.png)
 
