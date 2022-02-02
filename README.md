@@ -74,3 +74,14 @@ bool signedWithPublicKey = hbps.IsSignedWithPublicKey(pkey, message, signature);
 bool fullySigned = hbps.IsSignedWithPrivateKey(key, pkey, message, signature);
 ```
 
+# Donations are welcome
+BTC: bc1qy009xk2wgve56adrkpqsur7njmjf7tp9rgd6vq
+
+![QR Code BTC](./BTC-QRCode.PNG)
+
+Monero: 8A2PBhRt7Zn59wvhtLr5jRPGJG1g9pmjt6236qCFdVcHHgPN8vhAD5578n7Np5xKSPCEtUQeWwJmVfps3YsT7uuw1noVzcY
+![QR Code Monero](./Monero-QRCode.png)
+
+Nano: nano_1rd8uiqxws711hn591kac4hotqs6uf73o6wowmns8f8cckudkggykrkdy9ie
+
+![QR Code Nano](./Nano-QRCode.jpg)
