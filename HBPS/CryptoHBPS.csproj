@@ -5,7 +5,34 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Hash-based algorithm for digital property and resistant to quantum cryptography.
+
+Its principles are simple:
+  * A private key, a public key
+  * One spend per public key, unlimited receipts
+  * Planned multi-signature keys (WIP)</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/JoaoVictorVP/CryptoHBPS.Algorithm</RepositoryUrl>
+    <PackageTags>Cryptography;Crypto;Property;Authentication;Auth;Algorithm;HBPS;One-time;Signature;Commitment;Scheme;Multisig</PackageTags>
+    <PackageReleaseNotes>First package upload, all features actually on docs</PackageReleaseNotes>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>Rika vinho aaa.jpg</PackageIcon>
+    <PackageProjectUrl>https://github.com/JoaoVictorVP</PackageProjectUrl>
+    <PackageLicenseFile>C:\Users\Furude Rika\source\repos\CryptoHBPS.Algorithm\MIT.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Pictures\Rika vinho aaa.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Mii.NET" Version="1.0.0" />

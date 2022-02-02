@@ -1,5 +1,8 @@
 ﻿namespace CryptoHBPS;
 
+/// <summary>
+/// Interface for any HashGenerator's that an HBPS can use
+/// </summary>
 public interface IHashGenerator
 {
     /// <summary>

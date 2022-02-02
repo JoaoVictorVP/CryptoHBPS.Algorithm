@@ -2,6 +2,9 @@
 
 namespace CryptoHBPS;
 
+/// <summary>
+/// A common hash generator using <see cref="HMACSHA256"/>
+/// </summary>
 public struct HMACSHA256Generator : IHashGenerator
 {
     public int Size => 32;

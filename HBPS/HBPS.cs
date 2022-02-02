@@ -2,17 +2,32 @@
 
 namespace CryptoHBPS;
 
+/// <summary>
+/// Hash-Based Property Signature (or System, as you think fit better)
+/// </summary>
 public class HBPS
 {
     /// <summary>
-    /// 256-bit security
+    /// 256-bit security master key size
     /// </summary>
     public const int MasterKeySize = 32;
+    /// <summary>
+    /// 256-bit security private key size
+    /// </summary>
     public const int KeySize = 32;
+    /// <summary>
+    /// 256-bit security public key size
+    /// </summary>
     public const int PublicKeySize = 32;
 
-    public IHBPSRandomGenerator RandomGenerator;
-    public IHashGenerator HashGenerator;
+    /// <summary>
+    /// This HBPS random generator instance
+    /// </summary>
+    public readonly IHBPSRandomGenerator RandomGenerator;
+    /// <summary>
+    /// This HBPS hash generator instance
+    /// </summary>
+    public readonly IHashGenerator HashGenerator;
 
     /// <summary>
     /// Get a public/private key pair from current generator in order to use as property
@@ -21,9 +36,11 @@ public class HBPS
     public (Key key, PublicKey pkey) Get()
     {
         Span<byte> keySpan = stackalloc byte[KeySize];
+        // Draw a random private key K from the generator
         RandomGenerator.Fill(keySpan);
         Span<byte> pkeySpan = stackalloc byte[PublicKeySize];
 
+        // Derivate public key PK from K feeding as key and data for hash
         HashGenerator.GetHash(keySpan, keySpan, pkeySpan);
         //HMACSHA256.HashData(keySpan, keySpan, pkeySpan);
 
@@ -55,7 +72,9 @@ public class HBPS
     public void Sign(Key key, PublicKey pkey, Span<byte> data, Span<byte> signature)
     {
         int hashSize = HashGenerator.Size;
+        // Signs the firs part of message with public key (used to verify that it was got from a valid public key later
         HashGenerator.GetHash(pkey.AsSpan(), data, signature[..hashSize]);
+        // Signs the second part of message with first part and private key, used to prove authenticity later when private key K is commited
         HashGenerator.GetHash(key.AsSpan(), signature[..hashSize], signature[hashSize..]);
     }
 
@@ -71,6 +90,7 @@ public class HBPS
     {
         int hashSize = HashGenerator.Size;
         Span<byte> sign = stackalloc byte[hashSize * 2];
+        // Make a signature from private and public key over data, if this signature matches the provided one, the provided one is really signed with this private and public key
         Sign(key, pkey, data, sign);
 
         return signature.SequenceEqual(sign);
@@ -89,9 +109,15 @@ public class HBPS
 
         Span<byte> psign = stackalloc byte[hashSize];
         HashGenerator.GetHash(pkey.AsSpan(), data, psign);
+        // Verify if the first part of this provided signature matches the signature made with the given public key, if true, then the signature was really made with this public key
         return signature[..hashSize].SequenceEqual(psign);
     }
 
+    /// <summary>
+    /// Create's a new instance of HBPS using the specified <see cref="IHBPSRandomGenerator"/> and <see cref="IHashGenerator"/>
+    /// </summary>
+    /// <param name="randomGenerator">Random generator, used to generate private keys</param>
+    /// <param name="hashGenerator">Hash generator, used to derivate public keys</param>
     public HBPS(IHBPSRandomGenerator randomGenerator, IHashGenerator hashGenerator)
     {
         RandomGenerator = randomGenerator;

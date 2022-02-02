@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CryptoHBPS;
 
+/// <summary>
+/// Class used to handle seed phrases in general (use 'Seed Words.txt' as a source for english words, any generator that wants to be compatible with this should use a similar one)
+/// </summary>
 public static class SeedPhrase
 {
     /// <summary>
@@ -16,6 +19,9 @@ public static class SeedPhrase
     //static HashSet<string> f_words;
     static ushort wordCount;
 
+    /// <summary>
+    /// Begin a seed generation phase loading resources needed to generate <see cref="MasterKey"/> or <see cref="string"/> seeds later
+    /// </summary>
     public static void BegindAndLoadResources()
     {
         words = File.ReadAllLines("Seed Words.txt");
@@ -23,6 +29,9 @@ public static class SeedPhrase
         wordCount = (ushort)words.Length;
     }
 
+    /// <summary>
+    /// Ends the seed generation process, releasing resources loaded for GC to collect them
+    /// </summary>
     public static void EndAndClearResources()
     {
         words = null;
@@ -30,6 +39,11 @@ public static class SeedPhrase
         wordCount = 0;
     }
 
+    /// <summary>
+    /// Get's an <see cref="MasterKey"/> from the specified <see cref="string"/> key using <paramref name="seed"/>
+    /// </summary>
+    /// <param name="seed">The seed to generate master key</param>
+    /// <returns></returns>
     public unsafe static MasterKey GetMasterKey(string seed)
     {
         Span<byte> seedBytes = stackalloc byte[SeedSize * sizeof(ushort)];
@@ -73,7 +87,7 @@ public static class SeedPhrase
     }
 
     /// <summary>
-    /// Obtains a random seed phrase with <see cref="SeedSize"/> words
+    /// Obtains a highly entropic random seed phrase with <see cref="SeedSize"/> words
     /// </summary>
     /// <returns></returns>
     public static string GetSeedPhrase()
