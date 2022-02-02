@@ -20,7 +20,7 @@ Its principles are simple:
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageIcon>Rika vinho aaa.jpg</PackageIcon>
     <PackageProjectUrl>https://github.com/JoaoVictorVP</PackageProjectUrl>
-    <PackageLicenseFile>C:\Users\Furude Rika\source\repos\CryptoHBPS.Algorithm\MIT.txt</PackageLicenseFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,10 +28,10 @@ Its principles are simple:
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\README.md">
+    <Resource Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </None>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
