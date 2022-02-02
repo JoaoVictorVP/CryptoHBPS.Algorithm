@@ -18,7 +18,7 @@ And for a brief explanation of this multi-signature system, see this image:
 ![Master Private/Master Public Key multi-signature scheme](./FHBMS-md.png)
 
 Also, for further reading on theory itself see (subject to changes in future as algorithm is updated, but nothing that will change already developed concepts itself):
-![The paper of this system](./HBPS.pdf)
+[The paper of this system](./HBPS.pdf)
 
 ## How to use
 
