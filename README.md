@@ -12,7 +12,7 @@ An multi-signature system is been developed too but, currently, the system works
 There are too a implementation of master key generation (with seeds and so on), and K/PK generation based on it, and it is actually functional (the owner only need to store the private key with the rounds to generate every time new keys).
 
 For a brief explanation of this, see this image:
-![Master Private/Master Public Key multi-signature scheme](./FHBMS.psd)
+![Master Private/Master Public Key multi-signature scheme](./FHBMS-md.png)
 
 ## How to use
 
