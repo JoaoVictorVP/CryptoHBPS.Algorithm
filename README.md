@@ -1,7 +1,10 @@
 # CryptoHBPS.Algorithm
 
 NuGet Package Release:
+
 https://www.nuget.org/packages/CryptoHBPS
+
+[![NuGet version (CryptoHBPS)](https://img.shields.io/nuget/v/CryptoHBPS.svg?style=flat-square)](https://www.nuget.org/packages/CryptoHBPS)
 
 HBPS means Hash Based Property Signatures (or System, as it fits more)
 
